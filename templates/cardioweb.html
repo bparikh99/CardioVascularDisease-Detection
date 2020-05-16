@@ -1,0 +1,113 @@
+<html>
+<head>
+	<title></title>
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+ 
+</head>
+<body>
+<h1 class="text-center">Cardio Vascular Disease Identifier Form</h1>
+    <h6 class="text-danger font-weight-bold">*All Fields Are </h6><br><br>
+    <h5 class="text-danger font-weight-bold" align="text-center">{{prediction_text}}</h5>
+	<div class="container"><br>
+		
+		<div class="col-lg-6 m-auto d-block">
+			
+			<form action="{{ url_for('predict')}}" method="post" class="bg-light">
+				<div class="form-group">
+					<label for="user" class="font-weight-bold"> Age: </label>
+                    <span id="age" class="text-danger font-weight-bold"> *</span>
+					<input type="number" name="age" class="form-control" id="age" autocomplete="off" placeholder="Please Enter Age" min=30 max=100 required>
+					<span id="age" class="text-danger font-weight-bold"> </span>
+				</div>
+                <div class="form-group">
+					<label  class="font-weight-bold"> Height: </label>
+                    <span id="height" class="text-danger font-weight-bold">*</span>
+					<input type="number" name="height" class="form-control" id="height" autocomplete="off" placeholder=" height should be in cm" min=50 max=250 required>
+					<span id="height" class="text-danger font-weight-bold"> </span>
+				</div>
+                <div class="form-group">
+					<label class="font-weight-bold"> Weight: </label>
+                    <span id="weight" class="text-danger font-weight-bold">*</span>
+					<input type="number" name="weight" class="form-control" id="weight" autocomplete="off"
+					placeholder="Weight should be in cm" min=10 max=200 required>
+					<span id="weight" class="text-danger font-weight-bold"></span>
+				</div>
+                <div class="form-group">
+					<label class="font-weight-bold"> Systolic blood pressure: </label>
+                    <span id="al_hi" class="text-danger font-weight-bold">*</span>
+					<input type="number" name="al_hi" class="form-control" id=al_hi autocomplete="off"
+					placeholder="Diastolic should be in mmHG" min=30 max=150 required>
+					<span id="al_hi" class="text-danger font-weight-bold"> </span>
+				</div>
+
+				<div class="form-group">
+					<label class="font-weight-bold"> Diastolic blood pressure: </label>
+                    <span id="al_lo" class="text-danger font-weight-bold">*</span>
+					<input type="number" name="al_lo" class="form-control" id="al_lo" autocomplete="off"
+					placeholder="Systolic should be in mmHG" min=90 max=200 required>
+					<span id="al_lo" class="text-danger font-weight-bold"> </span>
+				</div>
+				 <div class="form-group">
+				<label for="w_class" class="font-weight-bold">Cholestrol</label> 
+			    <select id="chol" name="chol" required> 
+			       <option value="" selected disabled></option>
+			      <option value="1">Low Cholestrol</option> 
+			      <option value="2">Medium Cholestrol</option> 
+			      <option value="3">High Cholestrol</option>  
+			    </select> 
+				</div>
+				 <div class="form-group">
+				<label for="w_class" class="font-weight-bold">Glucose</label> 
+			    <select id="glu" name="glu" required> 
+			       <option value="" selected disabled></option>
+			      <option value="1">Low Glucose</option> 
+			      <option value="2">Medium Glucose</option> 
+			      <option value="3">High Glucose</option>  
+			    </select> 
+				</div>
+				 <div class="form-group">
+				<label for="w_class"class="font-weight-bold">Are you smoke??</label> 
+			    <select id="smoke" name="smoke" required> 
+			       <option value="" selected disabled></option>	
+			      <option value="0">No Im not smoker</option> 
+			      <option value="1">Yes im smoker</option>
+			    </select> 
+				</div>
+				 <div class="form-group">
+				<label for="w_class" class="font-weight-bold">Are you Alcoholic??</label> 
+			    <select id="alco" name="alco" required> 
+			      <option value="" selected disabled></option>
+			      <option value="0">No Im not</option> 
+			      <option value="1">Yes im </option>
+			    </select> 
+			     <div class="form-group">
+			    <label for="w_class" class="font-weight-bold">Gender</label> 
+			    <select id="gen" name="gen" required> 
+			      <option value="" selected disabled></option>
+			      <option value="0">Female</option> 
+			      <option value="1">Male </option>
+			    </select> 
+			     <div class="form-group">
+			    <label for="w_class" class="font-weight-bold">Any Physical Activity?</label> 
+			    <select id="phy" name="phy" required> 
+			      <option value="" selected disabled></option>
+			      <option value="0" >No Physical activity</option> 
+			      <option value="1">Yes I do! </option>
+			    </select>
+				</div>
+                
+
+				<button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+                
+
+			</form><br><br>
+		
+
+		</div>
+	</div>
+</body>
+</html>
